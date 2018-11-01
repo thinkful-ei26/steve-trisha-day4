@@ -1,6 +1,5 @@
 'use strict'
 
-function deleteListItem() {}
 function generateDiv(item) {
   // let customClass = '';
   // if (typeof fizzbuzzResult === 'string'){
@@ -23,12 +22,25 @@ function main() {
   //target the <form> element
   //tell JS to watch out for a submit event
 
+  //this deletes the closest <li>
   $('.shopping-list').on('click', '.shopping-item-delete', function(event) {
-    console.log(event)
+    //console.log(event)
     $(this)
       .closest('li')
       .remove()
   })
+
+  //this strikesthrough closest <li>
+  $('.shopping-list').on('click', '.shopping-item-toggle', function(event) {
+    //console.log(event)
+    $(this)
+      .closest('li')
+      .find('.shopping-item')
+      //toggleClass on .shopping-item
+      .toggleClass('shopping-item__checked')
+  })
+
+
   $('#js-shopping-list-form').submit(event => {
     // console.log(event)
 
